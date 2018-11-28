@@ -1,6 +1,12 @@
+/*
+	Both buttons are registered, so we set them to animate their color
+
+	Returns directive with 90 second timeout to click any button and start
+	Emits newRoundClick on completion (IMPLEMENTED)
+	Emits startTimeout on timeout (IMNPLEMENTED)
+*/
 var animations = require("../animations");
 
-// Both buttons are registered, so we set them to animate their color
 module.exports = {
 	canHandle: function canHandle(handlerInput) {
 	  console.log(JSON.stringify(handlerInput.requestEnvelope.request, null, 2));
@@ -19,7 +25,7 @@ module.exports = {
 	  handlerInput.attributesManager.setSessionAttributes(attributes);
   
 	  return handlerInput.responseBuilder
-		.speak("thanks for registering! Let's get started")
+		.speak("thanks for registering! Let's get started. Click any button to start the first round")
 		.addDirective({
 		  "type": "GadgetController.SetLight",
 		  "version": 1,
@@ -70,11 +76,16 @@ module.exports = {
 			 }
 		  },
 		  "events": {
-			"userClick": {
+			"newRoundClick": {
 			  "meets": [ "button_down_recognizer" ],
 			  "reports": "matches",
 			  "shouldEndInputHandler": true,
 			  "maximumInvocations": 1
+			},
+			"startTimeout" : {
+				"meets": [ "timed out" ],
+				"reports": "history",
+				"shouldEndInputHandler": true
 			}
 		  }
 		})

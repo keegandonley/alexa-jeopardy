@@ -14,7 +14,7 @@ module.exports = {
 	  console.log('!!!! NEW ROUND: ' + left + ', ' + right);
   
 	  return handlerInput.responseBuilder
-		.speak("let's play another turn!")
+		.speak("let's play!")
 		.addDirective({
 		  "type": "GadgetController.SetLight",
 		  "version": 1,

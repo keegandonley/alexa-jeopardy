@@ -7,6 +7,9 @@ var ButtonClickHandler = require("./handlers/ButtonClick");
 var ButtonRegisterHandler = require("./handlers/ButtonRegister");
 var newRoundHandler = require("./handlers/NewRound");
 var ErrorHandler = require("./handlers/Error");
+var FailedRegisterHandler = require("./handlers/FailedRegister");
+var StartTimeoutHandler = require("./handlers/StartTimeout");
+var NoStartHanlder = require("./handlers/NoStart");
 
 
 var skill = void 0;
@@ -17,10 +20,12 @@ module.exports.hello = function(event, context, callback) {
       .addRequestHandlers(
         LaunchRequestHandler,
         SessionEndedRequestHandler,
-        // NewRoundRequestHandler,
         ButtonClickHandler,
         ButtonRegisterHandler,
-        newRoundHandler
+        newRoundHandler,
+        FailedRegisterHandler,
+        StartTimeoutHandler,
+        NoStartHanlder
       )
       .addErrorHandlers(ErrorHandler)
       .create();

@@ -1,4 +1,11 @@
-// Opens the skill, and directs the user to press the buttons they'll use
+/*
+	Opens the skill, and directs the user to press the buttons they'll use
+
+	Returns directive with 30 second timeout to click both buttons
+	Emits register on completion (IMPLEMENTED)
+	Emits failedRegister on timeout (IMPLEMENTED)
+*/
+
 module.exports = {
 	canHandle: function canHandle(handlerInput) {
 	  return handlerInput.requestEnvelope.request.type === "LaunchRequest";
@@ -10,7 +17,7 @@ module.exports = {
 		.speak(speechText)
 		.addDirective({
 		  "type": "GameEngine.StartInputHandler",
-		  "timeout": 90000,
+		  "timeout": 30000,
 		  "proxies": [ "left", "right" ],
 		  "recognizers": {
 			"all pressed": {
@@ -36,7 +43,7 @@ module.exports = {
 			  "shouldEndInputHandler": true,
 			  "maximumInvocations": 1
 			},
-			"failedregister": {
+			"failedRegister": {
 			  "meets": [ "timed out" ],
 			  "reports": "history",
 			  "shouldEndInputHandler": true
