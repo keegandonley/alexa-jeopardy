@@ -11,7 +11,7 @@ module.exports = {
 	  return handlerInput.requestEnvelope.request.type === "LaunchRequest";
 	},
 	handle: function handle(handlerInput) {
-	  var speechText = "Welcome to computer science club jeopardy! Please press the buttons in use for this game. At any time, say 'exit' to quit.";
+	  var speechText = "<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_intro_01'/>Welcome to computer science club jeopardy! Please press the buttons in use for this game. At any time, say 'exit' to quit.";
   
 	  return handlerInput.responseBuilder
 		.speak(speechText)

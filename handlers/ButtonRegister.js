@@ -25,7 +25,7 @@ module.exports = {
 	  handlerInput.attributesManager.setSessionAttributes(attributes);
   
 	  return handlerInput.responseBuilder
-		.speak("thanks for registering! Let's get started. Click any button to start the first round")
+		.speak("<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_bridge_01'/>thanks for registering! Let's get started. Click any button to start the first round")
 		.addDirective({
 		  "type": "GadgetController.SetLight",
 		  "version": 1,

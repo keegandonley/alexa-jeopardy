@@ -14,7 +14,7 @@ module.exports = {
 	  console.log('!!!! NEW ROUND: ' + left + ', ' + right);
   
 	  return handlerInput.responseBuilder
-		.speak("let's play!")
+		.speak("<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_bridge_02'/>let's play!")
 		.addDirective({
 		  "type": "GadgetController.SetLight",
 		  "version": 1,

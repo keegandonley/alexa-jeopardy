@@ -15,7 +15,7 @@ module.exports = {
 	  var winner = handlerInput.requestEnvelope.request.events[0].inputEvents[0].gadgetId;
 	  attributes.winner = winner;
 	  return handlerInput.responseBuilder
-		.speak("we have a winner! Double click any button to move on")
+		.speak("<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_positive_response_02'/>we have a winner! Double click any button to move on")
 		.addDirective({
 		  "type": "GadgetController.SetLight",
 		  "version": 1,
