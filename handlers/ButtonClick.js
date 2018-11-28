@@ -63,7 +63,7 @@ module.exports = {
 			  "meets": [ "double_click_recognizer"],
 			  "reports": "matches",
 			  "shouldEndInputHandler": true,
-			}
+			} //TODO: timeout
 		  }
 		})
 		.getResponse();

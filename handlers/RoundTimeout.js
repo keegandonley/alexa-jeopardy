@@ -5,7 +5,7 @@ module.exports = {
 	  console.log(JSON.stringify(handlerInput.requestEnvelope.request, null, 2));
 	  return handlerInput.requestEnvelope.request.type === "GameEngine.InputHandlerEvent"
 		&& handlerInput.requestEnvelope.request.events[0]
-		&& handlerInput.requestEnvelope.request.events[0].name === "newRoundClick";
+		&& handlerInput.requestEnvelope.request.events[0].name === "roundTimeout";
 	},
 	handle: function handler(handlerInput) {
 	  var attributes = handlerInput.attributesManager.getSessionAttributes();
@@ -14,7 +14,7 @@ module.exports = {
 	  console.log('!!!! NEW ROUND: ' + left + ', ' + right);
   
 	  return handlerInput.responseBuilder
-		.speak("<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_bridge_02'/>let's play!<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_countdown_loop_64s_minimal_01'/>")
+		.speak("<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_neutral_response_03'/>60 seconds remain on the clock<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_countdown_loop_64s_minimal_01'/>")
 		.addDirective({
 		  "type": "GadgetController.SetLight",
 		  "version": 1,
@@ -71,7 +71,7 @@ module.exports = {
 			  "shouldEndInputHandler": true,
 			  "maximumInvocations": 1
 			},
-			"roundTimeout": { // TODO: handle timeouts here
+			"roundFail": { // TODO: handle timeouts here
 			  "meets": [ "timed out" ],
 			  "reports": "history",
 			  "shouldEndInputHandler": true

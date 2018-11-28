@@ -9,7 +9,9 @@ var newRoundHandler = require("./handlers/NewRound");
 var ErrorHandler = require("./handlers/Error");
 var FailedRegisterHandler = require("./handlers/FailedRegister");
 var StartTimeoutHandler = require("./handlers/StartTimeout");
-var NoStartHanlder = require("./handlers/NoStart");
+var NoStartHandler = require("./handlers/NoStart");
+var RoundFailHandler = require("./handlers/RoundFail");
+var RoundTimeoutHandler = require("./handlers/RoundTimeout");
 
 
 var skill = void 0;
@@ -25,7 +27,9 @@ module.exports.hello = function(event, context, callback) {
         newRoundHandler,
         FailedRegisterHandler,
         StartTimeoutHandler,
-        NoStartHanlder
+        NoStartHandler,
+        RoundFailHandler,
+        RoundTimeoutHandler
       )
       .addErrorHandlers(ErrorHandler)
       .create();
