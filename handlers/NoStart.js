@@ -12,7 +12,7 @@ module.exports = {
 	},
 	handle: function handler(handlerInput) {
 	  return handlerInput.responseBuilder
-		.speak("Hmm, it looks like you still haven't started a game. Goodbye")
+		.speak("<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_neutral_response_01'/>Hmm, it looks like you still haven't started a game. Goodbye")
 		.withShouldEndSession(true)
 		.getResponse();
 	}

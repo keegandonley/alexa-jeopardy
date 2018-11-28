@@ -10,7 +10,7 @@ module.exports = {
 	},
 	handle: function handler(handlerInput) {
 	  return handlerInput.responseBuilder
-		.speak("Sorry, you need to register buttons to play! Goodbye")
+		.speak("<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_neutral_response_01'/>Sorry, you need to register buttons to play! Goodbye")
 		.withShouldEndSession(true)
 		.getResponse();
 	}

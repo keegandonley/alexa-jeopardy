@@ -46,7 +46,12 @@ module.exports = {
 				"meets": [ "double_click_recognizer"],
 				"reports": "matches",
 				"shouldEndInputHandler": true,
-			  } //TODO: timeout
+			  },
+			  "newRoundTimeout" : {
+				"meets": [ "timed out" ],
+				"reports": "history",
+				"shouldEndInputHandler": true
+			  }
 			}
 		  })
 		.getResponse();

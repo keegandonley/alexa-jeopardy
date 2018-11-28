@@ -15,7 +15,7 @@ module.exports = {
 	},
 	handle: function handler(handlerInput) {
 	  return handlerInput.responseBuilder
-		.speak("Hmm, it looks like you haven't started a game yet. I'll give you another 90 seconds.")
+		.speak("<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_neutral_response_01'/>Hmm, it looks like you haven't started a game yet. I'll give you another 90 seconds.")
 		.addDirective({
 			"type": "GameEngine.StartInputHandler",
 			"timeout": 90000,

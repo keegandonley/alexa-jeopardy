@@ -71,7 +71,7 @@ module.exports = {
 			  "shouldEndInputHandler": true,
 			  "maximumInvocations": 1
 			},
-			"roundFail": { // TODO: handle timeouts here
+			"roundFail": {
 			  "meets": [ "timed out" ],
 			  "reports": "history",
 			  "shouldEndInputHandler": true
