@@ -18,7 +18,7 @@ module.exports = {
 		.addDirective({
 		  "type": "GameEngine.StartInputHandler",
 		  "timeout": 30000,
-		  "proxies": [ "left", "right" ],
+		  "proxies": [ "red", "blue", "green", "pink" ],
 		  "recognizers": {
 			"all pressed": {
 			  "type": "match",
@@ -26,11 +26,19 @@ module.exports = {
 			  "anchor": "start",
 			  "pattern": [
 				{
-				  "gadgetIds": [ "left" ],
+				  "gadgetIds": [ "red" ],
 				  "action": "down"
 				},
 				{
-				  "gadgetIds": [ "right" ],
+				  "gadgetIds": [ "blue" ],
+				  "action": "down"
+				},
+				{
+				  "gadgetIds": [ "green" ],
+				  "action": "down"
+				},
+				{
+				  "gadgetIds": [ "pink" ],
 				  "action": "down"
 				}
 			  ]

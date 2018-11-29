@@ -17,11 +17,15 @@ module.exports = {
 	handle: function handler(handlerInput) {
 	  var attributes = handlerInput.attributesManager.getSessionAttributes();
 	  console.log('Event Handled: GameEngine.InputHandlerEvent');
-	  var leftId = handlerInput.requestEnvelope.request.events[0].inputEvents[0].gadgetId;
-	  var rightId = handlerInput.requestEnvelope.request.events[0].inputEvents[1].gadgetId;
-	  console.log('!!!! REGISTERED: ' + leftId + ', ' + rightId);
-	  attributes.left = leftId;
-	  attributes.right = rightId;
+	  var redId = handlerInput.requestEnvelope.request.events[0].inputEvents[0].gadgetId;
+		var blueId = handlerInput.requestEnvelope.request.events[0].inputEvents[1].gadgetId;
+		var greenId = handlerInput.requestEnvelope.request.events[0].inputEvents[2].gadgetId;
+		var pinkId = handlerInput.requestEnvelope.request.events[0].inputEvents[3].gadgetId;
+	  console.log('!!!! REGISTERED: ' + redId + ', ' + blueId + ', ' + greenId + ', ' + pinkId);
+	  attributes.red = redId;
+		attributes.blue = blueId;
+		attributes.green = greenId;
+		attributes.pink = pinkId;
 	  handlerInput.attributesManager.setSessionAttributes(attributes);
   
 	  return handlerInput.responseBuilder
@@ -29,7 +33,7 @@ module.exports = {
 		.addDirective({
 		  "type": "GadgetController.SetLight",
 		  "version": 1,
-		  "targetGadgets": [ leftId ],
+		  "targetGadgets": [ redId ],
 		  "parameters": {
 			"triggerEvent": "none",
 			"triggerEventTimeMs": 0,
@@ -45,7 +49,7 @@ module.exports = {
 		.addDirective({
 		  "type": "GadgetController.SetLight",
 		  "version": 1,
-		  "targetGadgets": [ rightId ],
+		  "targetGadgets": [ blueId ],
 		  "parameters": {
 			"triggerEvent": "none",
 			"triggerEventTimeMs": 0,
@@ -54,6 +58,38 @@ module.exports = {
 				"repeat": 255,
 				"targetLights" : [ "1" ],
 				"sequence": animations.blue
+			  }
+			]
+		  }
+		})
+		.addDirective({
+		  "type": "GadgetController.SetLight",
+		  "version": 1,
+		  "targetGadgets": [ greenId ],
+		  "parameters": {
+			"triggerEvent": "none",
+			"triggerEventTimeMs": 0,
+			"animations": [
+			  {
+				"repeat": 255,
+				"targetLights" : [ "1" ],
+				"sequence": animations.green
+			  }
+			]
+		  }
+		})
+		.addDirective({
+		  "type": "GadgetController.SetLight",
+		  "version": 1,
+		  "targetGadgets": [ pinkId ],
+		  "parameters": {
+			"triggerEvent": "none",
+			"triggerEventTimeMs": 0,
+			"animations": [
+			  {
+				"repeat": 255,
+				"targetLights" : [ "1" ],
+				"sequence": animations.pink
 			  }
 			]
 		  }

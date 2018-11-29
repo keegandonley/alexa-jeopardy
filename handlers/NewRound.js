@@ -9,16 +9,18 @@ module.exports = {
 	},
 	handle: function handler(handlerInput) {
 	  var attributes = handlerInput.attributesManager.getSessionAttributes();
-	  var left = attributes.left;
-	  var right = attributes.right;
-	  console.log('!!!! NEW ROUND: ' + left + ', ' + right);
+	  var red = attributes.red;
+		var blue = attributes.blue;
+		var green = attributes.green;
+		var pink = attributes.pink;
+	  console.log('!!!! NEW ROUND: ' + red + ', ' + blue + ', ' + green + ', ' + pink);
   
 	  return handlerInput.responseBuilder
 		.speak("<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_bridge_02'/>let's play!<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_countdown_loop_64s_minimal_01'/>")
 		.addDirective({
 		  "type": "GadgetController.SetLight",
 		  "version": 1,
-		  "targetGadgets": [ left ],
+		  "targetGadgets": [ red ],
 		  "parameters": {
 			"triggerEvent": "none",
 			"triggerEventTimeMs": 0,
@@ -34,7 +36,7 @@ module.exports = {
 		.addDirective({
 		  "type": "GadgetController.SetLight",
 		  "version": 1,
-		  "targetGadgets": [ right ],
+		  "targetGadgets": [ blue ],
 		  "parameters": {
 			"triggerEvent": "none",
 			"triggerEventTimeMs": 0,
@@ -43,6 +45,38 @@ module.exports = {
 				"repeat": 255,
 				"targetLights" : [ "1" ],
 				"sequence": animations.blue
+			  }
+			]
+		  }
+		})
+		.addDirective({
+		  "type": "GadgetController.SetLight",
+		  "version": 1,
+		  "targetGadgets": [ green ],
+		  "parameters": {
+			"triggerEvent": "none",
+			"triggerEventTimeMs": 0,
+			"animations": [
+			  {
+				"repeat": 255,
+				"targetLights" : [ "1" ],
+				"sequence": animations.green
+			  }
+			]
+		  }
+		})
+		.addDirective({
+		  "type": "GadgetController.SetLight",
+		  "version": 1,
+		  "targetGadgets": [ pink ],
+		  "parameters": {
+			"triggerEvent": "none",
+			"triggerEventTimeMs": 0,
+			"animations": [
+			  {
+				"repeat": 255,
+				"targetLights" : [ "1" ],
+				"sequence": animations.pink
 			  }
 			]
 		  }

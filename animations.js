@@ -96,3 +96,69 @@ module.exports.rainbow = [
 	  "blend": false
 	}
 ];
+
+module.exports.green = [
+	{
+	  "durationMs": 1000,
+	  "color": "33cc33",
+	  "blend": true
+	},
+	{
+	  "durationMs": 1000,
+	  "color": "2eb82e",
+	  "blend": true
+	},
+	{
+	  "durationMs": 1000,
+	  "color": "29a329",
+	  "blend": true
+	},
+	{
+	  "durationMs": 1000,
+	  "color": "248f24",
+	  "blend": true
+	},
+	{
+	  "durationMs": 1000,
+	  "color": "29a329",
+	  "blend": true
+	},
+	{
+	  "durationMs": 1000,
+	  "color": "2eb82e",
+	  "blend": true
+	}
+];
+
+module.exports.pink = [
+	{
+	  "durationMs": 1000,
+	  "color": "ff66ff",
+	  "blend": true
+	},
+	{
+	  "durationMs": 1000,
+	  "color": "ff4dff",
+	  "blend": true
+	},
+	{
+	  "durationMs": 1000,
+	  "color": "ff33ff",
+	  "blend": true
+	},
+	{
+	  "durationMs": 1000,
+	  "color": "ff1aff",
+	  "blend": true
+	},
+	{
+	  "durationMs": 1000,
+	  "color": "ff33ff",
+	  "blend": true
+	},
+	{
+	  "durationMs": 1000,
+	  "color": "ff4dff",
+	  "blend": true
+	}
+];
