@@ -16,7 +16,7 @@ var NewRoundTimeoutHandler = require("./handlers/NewRoundTimeout");
 var NewRoundFail = require("./handlers/NewRoundFail");
 
 var skill = void 0;
-module.exports.hello = function(event, context, callback) {
+module.exports.hello = function (event, context, callback) {
   console.log("REQUEST++++" + JSON.stringify(event));
   if (!skill) {
     skill = Alexa.SkillBuilders.custom()
@@ -38,7 +38,7 @@ module.exports.hello = function(event, context, callback) {
       .create();
   }
 
-  skill.invoke(event, context).then(function(resp) {
+  skill.invoke(event, context).then(function (resp) {
     console.log("RESPONSE++++" + JSON.stringify(resp));
     callback(null, resp);
   });

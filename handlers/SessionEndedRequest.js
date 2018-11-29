@@ -1,9 +1,9 @@
 module.exports = {
 	canHandle: function canHandle(handlerInput) {
-	  return handlerInput.requestEnvelope.request.type === "SessionEndedRequest";
+		return handlerInput.requestEnvelope.request.type === "SessionEndedRequest";
 	},
 	handle: function handle(handlerInput) {
-	  //any cleanup logic goes here
-	  return handlerInput.responseBuilder.getResponse();
+		//any cleanup logic goes here
+		return handlerInput.responseBuilder.getResponse();
 	}
 };
